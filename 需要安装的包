@@ -1,0 +1,8 @@
+php mongodb扩展
+
+mongodb扩展
+composer require jenssegers/mongodb:3.6.*
+参考：https://learnku.com/articles/2560/using-mongodb-in-laravel
+
+predis扩展
+composer require predis/predis
