@@ -31,7 +31,7 @@ class Author extends Model
         if (empty($author_name)) {
             return [];
         }
-        $query = self::where('AuthorName', $author_name)->first();
+        $query = self::where('AuthorName', addslashes($author_name))->first();
         return is_null($query) ? [] : $query->toArray();
     }
 
@@ -42,6 +42,10 @@ class Author extends Model
      */
     public static function getRecommendedBookByAuthor($author_name_string) {
         $author_name_list = explode(',', $author_name_string);
+        $author_name_list = array_map(function ($author_name_item) {
+            return addslashes($author_name_item);
+        }, $author_name_list);
+
         if (empty($author_name_list)) {
             return [];
         }

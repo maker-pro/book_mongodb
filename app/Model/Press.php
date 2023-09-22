@@ -31,7 +31,7 @@ class Press extends Model
         if (empty($press_name)) {
             return [];
         }
-        $query = self::where('PressName', $press_name)->first();
+        $query = self::where('PressName', addslashes($press_name))->first();
         return is_null($query) ? [] : $query->toArray();
     }
 

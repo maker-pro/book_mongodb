@@ -53,7 +53,7 @@ class Handler extends ExceptionHandler
             $error_message = $exception->getMessage();
             $error_file = $exception->getFile();
             $error_file_line = $exception->getLine();
-            Log::error('url: ' . $request_url . ', ' . $error_file . ': ' . $error_file_line  . ', error: ' . $error_message);
+            Log::error('ip: ' . $request->ip() . ', url: ' . $request_url . ', ' . $error_file . ': ' . $error_file_line  . ', error: ' . $error_message);
             return response()->json([
                 'code' => '400',
                 'msg' => '请求出错',
@@ -64,7 +64,7 @@ class Handler extends ExceptionHandler
             $error_message = $exception->getMessage();
             $error_file = $exception->getFile();
             $error_file_line = $exception->getLine();
-            Log::error('url: ' . $request_url . ', ' . $error_file . ': ' . $error_file_line  . ', error: ' . $error_message);
+            Log::error('ip: ' . $request->ip() . ', url: ' . $request_url . ', ' . $error_file . ': ' . $error_file_line  . ', error: ' . $error_message);
         }
         return redirect('/error');
         // return parent::render($request, $exception);
